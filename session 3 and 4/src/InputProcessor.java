@@ -1,5 +1,3 @@
-import com.sun.istack.internal.NotNull;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,7 +14,7 @@ public class InputProcessor {
         if (bool) {
             System.out.println("Add student successful.");
         } else {
-            System.err.println("Add student failed! Student has already exist!");
+            System.err.println("Add student failed! The student has already exist!");
         }
     }
 
@@ -25,14 +23,14 @@ public class InputProcessor {
         if (bool) {
             System.out.println("Add professor successful.");
         } else {
-            System.err.println("Add professor failed! Student has already exist!");
+            System.err.println("Add professor failed! The professor has already exist!");
         }
     }
 
     private void processAddCourse(String[] split) {
         Professor professor = manager.getProfessorByNationalCode(split[6]);
         if (professor == null) {
-            System.err.println("Professor does not exist!");
+            System.err.println("The professor does not exist!");
             return;
         }
         Course course;
@@ -47,9 +45,9 @@ public class InputProcessor {
 
         boolean bool = manager.addCourse(course);
         if (bool) {
-            System.out.println("Course successfully added.");
+            System.out.println("Add course successfully.");
         } else {
-            System.err.println("Add course failed! Course has already exist!");
+            System.err.println("Add course failed! The course has already exist!");
         }
     }
 
@@ -89,7 +87,7 @@ public class InputProcessor {
         if (bool) {
             System.out.println("take course successful.");
         } else {
-            System.err.println("take course failed! Student have not passed pre-courses yet!");
+            System.err.println("take course failed! The student have not passed pre-courses yet!");
         }
     }
 
@@ -108,7 +106,7 @@ public class InputProcessor {
         if (bool) {
             System.out.println("drop course successful.");
         } else {
-            System.err.println("drop course failed! Student does not have this course yet!");
+            System.err.println("drop course failed! The student does not have this course yet!");
         }
     }
 
