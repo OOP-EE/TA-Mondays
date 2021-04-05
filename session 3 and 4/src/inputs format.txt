@@ -1,0 +1,56 @@
+------------------------commands(done)------------------------
+add student firstName lastName studentId department
+add professor firstName lastName nationalCode department
+
+add course courseName courseNum courseCredit courseGroup professorNationalCode preCourse1,preCourse2,...
+take course studentId courseNum courseCredit CourseGroup
+drop course studentId courseNum courseCredit CourseGroup
+
+show students
+show professors
+show courses
+
+end
+------------------------commands(TODO)-------------------------
+show courses for student studentId
+show course details courseName
+
+submit course mark courseNum studentId
+
+recieve loan
+
+-----------------------------Students---------------------------
+add student Omid Kiani 99100001 EE
+add student Zahra Amani 99100002 EE
+add student Armin Abdi 99100003 CE
+add student Amir Yousefi 99100004 CS
+add student Negin Kamali 99000005 EE
+----------------------------Professors--------------------------
+add professor Reza Moghaddasi 1111000001 Math
+add professor Bahman Khanedani 1111000002 Math
+add professor Mahmood BahmanAbadi 1111000003 Physics
+add professor Abdollah Araste 1111000004 EE
+add professor Matin Hashemi 1111000005 EE
+add professor Ali Fotowat 1111000006 EE
+add professor MohammadBagher Shamsollahi 1111000007 EE
+add professor Mahdi Shabani 1111000008 EE
+add professor Babak Khalaj 1111000009 EE
+add professor Hamid Behrouzi 1111000010 EE
+add professor Mohammad Karbasi 1111000011 EE
+add professor MohammadAli MaddahAli 1111000012 EE
+------------------------------Courses---------------------------
+add course Math1 22015 4 1 1111000001
+add course Math1 22015 4 2 1111000002
+add course Physics1 24011 3 1 1111000003
+add course Physics2 24012 3 1 1111000003 24011
+add course Math2 22016 4 1 1111000001 22015
+add course BasicPrograming 25768 3 1 1111000004
+add course OOP 25767 3 1 1111000005 25768
+add course Circuit1 25759 4 1 1111000006
+add course Circuit1 25759 4 2 1111000007
+add course Circuit1 25759 4 3 1111000008
+add course Circuit2 25731 3 1 1111000007 25759
+add course Signals 25742 3 2 1111000009 25731,25768
+add course Signals 25742 3 3 1111000010 25731,25768
+add course Statistics 25732 3 1 1111000011 22016
+add course Statistics 25732 3 2 1111000012 22016

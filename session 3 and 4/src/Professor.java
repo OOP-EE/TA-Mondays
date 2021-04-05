@@ -1,18 +1,18 @@
 public class Professor {
     private String firstName;
     private String lastName;
-    private String professorId;
+    private String nationalCode;
     private String department;
 
-    public Professor(String firstName, String lastName, String professorId, String department) {
+    public Professor(String firstName, String lastName, String nationalCode, String department) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.professorId = professorId;
+        this.nationalCode = nationalCode;
         this.department = department;
     }
 
-    public String getProfessorId() {
-        return professorId;
+    public String getNationalCode() {
+        return nationalCode;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Professor {
         return "Professor{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", professorId='" + professorId + '\'' +
+                ", nationalCode='" + nationalCode + '\'' +
                 ", department='" + department + '\'' +
                 '}';
     }
