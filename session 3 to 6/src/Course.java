@@ -1,5 +1,17 @@
 import java.util.ArrayList;
 
+class CourseInfo {
+    private double courseMark;
+
+    public double getCourseMark() {
+        return courseMark;
+    }
+
+    public void setCourseMark(double courseMark) {
+        this.courseMark = courseMark;
+    }
+}
+
 public class Course {
     private String courseName;
     private int courseNum;
@@ -60,3 +72,4 @@ public class Course {
                 '}';
     }
 }
+

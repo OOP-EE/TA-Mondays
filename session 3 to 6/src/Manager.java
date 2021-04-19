@@ -57,6 +57,32 @@ public class Manager {
         return true;
     }
 
+    public boolean takeCourseForStudent(Course course, Student student) {
+        return student.tackCourse(course);
+    }
+
+    public boolean dropCourseForStudent(Course course, Student student) {
+        return student.dropCourse(course);
+    }
+
+    public Person receiveLoanFor(String nationalCode) {
+        Person person;
+        for (Professor professor : professors) {
+            if (professor.getNationalCode().equals(nationalCode)) {
+                person = professor;
+                person.receiveLoan();
+                return person;
+            }
+        }
+        for (Student student : students) {
+            if (student.getNationalCode().equals(nationalCode)) {
+                student.receiveLoan();
+                return student;
+            }
+        }
+        return null;
+    }
+
     public void showStudents() {
         for (Student student : students) {
             System.out.println(student);
@@ -69,18 +95,18 @@ public class Manager {
         }
     }
 
-    public void showCourse() {
+    public void showCourses() {
         for (Course course : courses) {
             System.out.println(course);
         }
     }
 
-    public boolean takeCourseForStudent(Course course, Student student) {
-        return student.tackCourse(course);
-    }
-
-    public boolean dropCourseForStudent(Course course, Student student) {
-        return student.dropCourse(course);
+    public ArrayList<Course> showCoursesForStudent(String studentId) {
+        Student student = getStudentByStudentId(studentId);
+        if (student == null) {
+            return null;
+        }
+        return student.getCourses();
     }
 
     public Professor getProfessorByNationalCode(String nationalCode) {

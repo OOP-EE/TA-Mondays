@@ -1,18 +1,28 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
-public class Student {
-    private String firstName;
-    private String lastName;
+public class Student extends Person {
     private String studentId;
     private String department;
     private ArrayList<Course> courses;
+    // private HashMap<Course, CourseInfo> coursesMap;
 
-    public Student(String firstName, String lastName, String studentId, String department) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Student(String firstName, String lastName, String nationalCode, String studentId, String department) {
+        super(firstName, lastName, nationalCode);
         this.studentId = studentId;
         this.department = department;
         this.courses = new ArrayList<>();
+    }
+
+    @Override
+    public void receiveLoan() {
+        loanAmount += Person.STUDENT_LOAN_AMOUNT;
+    }
+
+    @Override
+    public String getType() {
+        return "Student";
     }
 
     public boolean tackCourse(Course newCourse) {
@@ -39,6 +49,10 @@ public class Student {
 
     public String getStudentId() {
         return studentId;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
     }
 
     @Override

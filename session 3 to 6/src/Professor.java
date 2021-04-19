@@ -1,18 +1,23 @@
-public class Professor {
-    private String firstName;
-    private String lastName;
-    private String nationalCode;
+public class Professor extends Person {
     private String department;
 
     public Professor(String firstName, String lastName, String nationalCode, String department) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.nationalCode = nationalCode;
+        super(firstName, lastName, nationalCode);
         this.department = department;
     }
 
-    public String getNationalCode() {
-        return nationalCode;
+    public String getDepartment() {
+        return department;
+    }
+
+    @Override
+    public void receiveLoan() {
+        loanAmount += Person.PROFESSOR_LOAN_AMOUNT;
+    }
+
+    @Override
+    public String getType() {
+        return "Professor";
     }
 
     @Override

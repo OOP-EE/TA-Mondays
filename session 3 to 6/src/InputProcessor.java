@@ -10,11 +10,11 @@ public class InputProcessor {
     }
 
     private void processAddStudent(String[] split) {
-        boolean bool = manager.addStudent(new Student(split[2], split[3], split[4], split[5]));
+        boolean bool = manager.addStudent(new Student(split[2], split[3], split[4], split[5], split[6]));
         if (bool) {
             System.out.println("Add student successful.");
         } else {
-            System.err.println("Add student failed! The student has already exist!");
+            System.err.println("Add student failed! Student has already exist!");
         }
     }
 
@@ -23,14 +23,14 @@ public class InputProcessor {
         if (bool) {
             System.out.println("Add professor successful.");
         } else {
-            System.err.println("Add professor failed! The professor has already exist!");
+            System.err.println("Add professor failed! Student has already exist!");
         }
     }
 
     private void processAddCourse(String[] split) {
         Professor professor = manager.getProfessorByNationalCode(split[6]);
         if (professor == null) {
-            System.err.println("The professor does not exist!");
+            System.err.println("Professor does not exist!");
             return;
         }
         Course course;
@@ -45,9 +45,9 @@ public class InputProcessor {
 
         boolean bool = manager.addCourse(course);
         if (bool) {
-            System.out.println("Add course successfully.");
+            System.out.println("Course successfully added.");
         } else {
-            System.err.println("Add course failed! The course has already exist!");
+            System.err.println("Add course failed! Course has already exist!");
         }
     }
 
@@ -69,7 +69,7 @@ public class InputProcessor {
     }
 
     private void processShowCourses() {
-        manager.showCourse();
+        manager.showCourses();
     }
 
     private void processTakeCourse(String[] split) {
@@ -87,7 +87,7 @@ public class InputProcessor {
         if (bool) {
             System.out.println("take course successful.");
         } else {
-            System.err.println("take course failed! The student have not passed pre-courses yet!");
+            System.err.println("take course failed! Student have not passed pre-courses yet!");
         }
     }
 
@@ -106,7 +106,34 @@ public class InputProcessor {
         if (bool) {
             System.out.println("drop course successful.");
         } else {
-            System.err.println("drop course failed! The student does not have this course yet!");
+            System.err.println("drop course failed! Student does not have this course yet!");
+        }
+    }
+
+    private void processShowCoursesForStudent(String[] spilt) {
+        ArrayList<Course> courses = manager.showCoursesForStudent(spilt[4]);
+        if (courses == null) {
+            System.err.println("Student does not exist!");;
+        } else if (courses.isEmpty()) {
+            System.out.println("The student doesn't have any course!");
+        } else {
+            System.out.println("Courses for student with student ID " + spilt[4] + " :");
+            for (Course course : courses) {
+                System.out.println(course);
+            }
+        }
+    }
+
+    private void processSubmitCourseMark(String[] split) {
+        //TODO
+    }
+
+    private void processReceiveLoan(String[] split) {
+        Person person = manager.receiveLoanFor(split[3]);
+        if (person == null) {
+            System.err.println("The national code doesn't exist!");
+        } else {
+            System.out.println(person.getFirstName() + " " + person.getLastName() + " received load.");
         }
     }
 
@@ -119,16 +146,22 @@ public class InputProcessor {
                 processAddProfessor(input.split("\\s"));
             } else if (input.startsWith("add course")) {
                 processAddCourse(input.split("\\s"));
-            } else if (input.startsWith("show students")) {
+            } else if (input.startsWith("take course")) {
+                processTakeCourse(input.split("\\s"));
+            } else if (input.startsWith("drop course")) {
+                processDropCourse(input.split("\\s"));
+            } else if (input.startsWith("show courses for student")) {
+                processShowCoursesForStudent(input.split("\\s"));
+            } else if (input.startsWith("submit course mark")) {
+                processSubmitCourseMark(input.split("\\s"));
+            } else if (input.startsWith("receive loan")) {
+                processReceiveLoan(input.split("\\s"));
+            }  else if (input.startsWith("show students")) {
                 processShowStudents();
             } else if (input.startsWith("show professors")) {
                 processShowProfessors();
             } else if (input.startsWith("show courses")) {
                 processShowCourses();
-            } else if (input.startsWith("take course")) {
-                processTakeCourse(input.split("\\s"));
-            } else if (input.startsWith("drop course")) {
-                processDropCourse(input.split("\\s"));
             } else {
                 System.err.println("Invalid Input!");
             }

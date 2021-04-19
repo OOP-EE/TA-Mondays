@@ -1,5 +1,5 @@
 ------------------------commands(done)------------------------
-add student firstName lastName studentId department
+add student firstName lastName nationalCode studentId department
 add professor firstName lastName nationalCode department
 
 add course courseName courseNum courseCredit courseGroup professorNationalCode preCourse1,preCourse2,...
@@ -9,22 +9,22 @@ drop course studentId courseNum courseCredit CourseGroup
 show students
 show professors
 show courses
+show courses for student studentId
+
+recieve loan for nationalCode
 
 end
 ------------------------commands(TODO)-------------------------
-show courses for student studentId
-show course details courseName
 
 submit course mark courseNum studentId
 
-recieve loan
 
 -----------------------------Students---------------------------
-add student Omid Kiani 99100001 EE
-add student Zahra Amani 99100002 EE
-add student Armin Abdi 99100003 CE
-add student Amir Yousefi 99100004 CS
-add student Negin Kamali 99000005 EE
+add student Omid Kiani 0000000001 99100001 EE
+add student Zahra Amani 0000000002 99100002 EE
+add student Armin Abdi 0000000003 99100003 CE
+add student Amir Yousefi 0000000004 99100004 CS
+add student Negin Kamali 0000000005 99000005 EE
 ----------------------------Professors--------------------------
 add professor Reza Moghaddasi 1111000001 Math
 add professor Bahman Khanedani 1111000002 Math
